@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class ProductController {
 
     @Autowired
@@ -17,7 +18,6 @@ public class ProductController {
 
     @Autowired
     private ProductRepository action;
-
 
     @GetMapping("/apiProducts")
     public List<Product> listProducts() {
@@ -38,6 +38,5 @@ public class ProductController {
     public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         return service.deleteProduct(id);
     }
-
 
 }
